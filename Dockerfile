@@ -1,4 +1,4 @@
-FROM docker-alpine-oraclejdk7
+FROM yogihardi/alpine-oraclejdk7
 
 ENV SCALA_VERSION=2.10.6 
 ENV SCALA_HOME=/usr/share/scala
