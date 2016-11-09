@@ -1,7 +1,11 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM docker-alpine-oraclejdk7
 
-ENV SCALA_VERSION=2.12.0-M5 \
-    SCALA_HOME=/usr/share/scala
+ENV SCALA_VERSION=2.10.6 
+ENV SCALA_HOME=/usr/share/scala
+
+ENV MAVEN_VERSION 3.3.9
+ENV MAVEN_HOME /usr/lib/mvn
+ENV PATH $MAVEN_HOME/bin:$PATH
 
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 
@@ -16,3 +20,9 @@ RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     ln -s "${SCALA_HOME}/bin/"* "/usr/bin/" && \
     apk del .build-dependencies && \
     rm -rf "/tmp/"*
+
+RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+  tar -zxvf apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+  rm apache-maven-$MAVEN_VERSION-bin.tar.gz && \
+  mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
+
