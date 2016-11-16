@@ -9,8 +9,10 @@ ENV PATH $MAVEN_HOME/bin:$PATH
 
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 
-RUN apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
+RUN apk update && \
+    apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     apk add --no-cache bash && \
+    apk add openssh && \
     cd "/tmp" && \
     wget "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
     tar xzf "scala-${SCALA_VERSION}.tgz" && \
