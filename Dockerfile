@@ -7,6 +7,12 @@ ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_HOME /usr/lib/mvn
 ENV PATH $MAVEN_HOME/bin:$PATH
 
+# add id_rsa
+RUN mkdir -p /root/.ssh
+ADD id_rsa /root/.ssh/id_rsa
+RUN chmod 700 /root/.ssh/id_rsa
+RUN echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 
 RUN apk update && \
