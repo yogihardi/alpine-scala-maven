@@ -13,6 +13,7 @@ RUN apk update && \
     apk add --no-cache --virtual=.build-dependencies wget ca-certificates && \
     apk add --no-cache bash && \
     apk add openssh && \
+    apk add sshpass && \
     cd "/tmp" && \
     wget "https://downloads.typesafe.com/scala/${SCALA_VERSION}/scala-${SCALA_VERSION}.tgz" && \
     tar xzf "scala-${SCALA_VERSION}.tgz" && \
