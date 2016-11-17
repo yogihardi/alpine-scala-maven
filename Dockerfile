@@ -11,7 +11,7 @@ ENV PATH $MAVEN_HOME/bin:$PATH
 RUN mkdir -p /root/.ssh
 ADD id_rsa /root/.ssh/id_rsa
 RUN chmod 700 /root/.ssh/id_rsa
-RUN echo "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
+RUN echo -e "Host *\n\tStrictHostKeyChecking no\n" >> /root/.ssh/config
 
 # NOTE: bash is used by scala/scalac scripts, and it cannot be easily replaced with ash.
 
