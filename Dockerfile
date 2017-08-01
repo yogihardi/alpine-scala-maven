@@ -36,4 +36,4 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
 
 RUN apk add --update curl && \
-    rm -rf /var/cache/apk/*
+    rm -rf /var/cache/apk/* 
