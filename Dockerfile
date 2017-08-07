@@ -37,3 +37,8 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
 
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/* 
+    
+RUN apk update && apk upgrade && apk --update add \
+    ruby ruby-irb ruby-rake ruby-io-console ruby-bigdecimal ruby-json ruby-bundler \
+    libstdc++ tzdata bash ca-certificates \
+    &&  echo 'gem: --no-document' > /etc/gemrc
