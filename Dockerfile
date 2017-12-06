@@ -7,7 +7,7 @@ ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_HOME /usr/lib/mvn
 ENV PATH $MAVEN_HOME/bin:$PATH
 
-ENV SBT_VERSION 0.13.15
+ENV SBT_VERSION 0.13.16
 
 # add id_rsa
 RUN mkdir -p /root/.ssh
@@ -38,7 +38,7 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
   
 RUN apk add --no-cache --virtual=build-dependencies curl && \
-    curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" | gunzip | tar -x -C /usr/local && \
+    curl -sL "https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" | gunzip | tar -x -C /usr/local && \
     ln -s /usr/local/sbt/bin/sbt /usr/local/bin/sbt && \
     chmod 0755 /usr/local/bin/sbt && \
     apk del build-dependencies
