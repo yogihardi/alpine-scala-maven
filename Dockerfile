@@ -7,7 +7,7 @@ ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_HOME /usr/lib/mvn
 ENV PATH $MAVEN_HOME/bin:$PATH
 
-ENV SBT_VERSION 0.13.16
+ENV SBT_VERSION 0.13.15
 
 # add id_rsa
 RUN mkdir -p /root/.ssh
