@@ -38,7 +38,7 @@ RUN wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/ap
   mv apache-maven-$MAVEN_VERSION /usr/lib/mvn
   
 RUN apk add --no-cache --virtual=build-dependencies curl && \
-    curl -sL "https://github.com/sbt/sbt/releases/download/v1.0.4/sbt-1.0.4.tgz" | gunzip | tar -x -C /usr/local
+    curl -sL "https://github.com/sbt/sbt/releases/download/v1.0.4/sbt-1.0.4.tgz" | gunzip | tar -x -C /usr/local && \
     ln -s /usr/local/sbt/bin/sbt /usr/local/bin/sbt && \
     chmod 0755 /usr/local/bin/sbt && \
     apk del build-dependencies
