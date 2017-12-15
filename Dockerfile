@@ -1,6 +1,6 @@
 FROM yogihardi/alpine-oraclejdk7
 
-ENV SCALA_VERSION=2.11.0 
+ENV SCALA_VERSION=2.10.6 
 ENV SCALA_HOME=/usr/share/scala
 
 ENV MAVEN_VERSION 3.3.9
