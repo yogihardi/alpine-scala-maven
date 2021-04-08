@@ -3,7 +3,7 @@ FROM frolvlad/alpine-oraclejdk8
 ENV SCALA_VERSION=2.10.6 
 ENV SCALA_HOME=/usr/share/scala
 
-ENV MAVEN_VERSION 3.3.9
+ENV MAVEN_VERSION 3.6.3
 ENV MAVEN_HOME /usr/lib/mvn
 ENV PATH $MAVEN_HOME/bin:$PATH
 
